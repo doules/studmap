@@ -548,28 +548,28 @@ h3 {
         padding: 40px 15px;
         min-height: 200px;
     }
-
+    
     .logo {
         height: 130px;
     }
-
+    
     h1 {
         font-size: 2.1rem;
     }
-
+    
     .logo-backdrop {
         width: 180px;
         height: 180px;
     }
-
+    
     .categories-grid {
         grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     }
-
+    
     .club-card {
         padding: 25px;
     }
-
+    
     .no-matches-content h3 {
         font-size: 1.4rem;
     }
@@ -580,56 +580,56 @@ h3 {
     body {
         padding: 15px;
     }
-
+    
     header {
         padding: 30px 10px;
         min-height: 180px;
     }
-
+    
     .logo {
         height: 110px;
     }
-
+    
     h1 {
         font-size: 1.8rem;
     }
-
+    
     .logo-backdrop {
         width: 150px;
         height: 150px;
     }
-
+    
     .screen {
         padding: 20px;
     }
-
+    
     .matches-grid {
         grid-template-columns: 1fr 1fr;
         gap: 20px;
     }
-
+    
     .club-card {
         padding: 20px;
     }
-
+    
     .club-card h3 {
         font-size: 1.3rem;
     }
-
+    
     .swipe-actions {
         gap: 50px;
     }
-
+    
     .swipe-btn {
         width: 70px;
         height: 70px;
         font-size: 1.8rem;
     }
-
+    
     .no-matches-content {
         padding: 25px;
     }
-
+    
     .no-matches-content h3 {
         font-size: 1.3rem;
     }
@@ -641,50 +641,50 @@ h3 {
         padding: 25px 8px;
         min-height: 160px;
     }
-
+    
     .logo {
         height: 90px;
     }
-
+    
     h1 {
         font-size: 1.5rem;
     }
-
+    
     .logo-backdrop {
         width: 130px;
         height: 130px;
     }
-
+    
     .categories-grid {
         grid-template-columns: 1fr;
     }
-
+    
     .club-card {
         padding: 18px;
     }
-
+    
     .club-card img {
         height: 180px;
     }
-
+    
     .club-card h3 {
         font-size: 1.2rem;
     }
-
+    
     .matches-grid {
         grid-template-columns: 1fr;
     }
-
+    
     .swipe-btn {
         width: 60px;
         height: 60px;
         font-size: 1.6rem;
     }
-
+    
     .no-matches-content h3 {
         font-size: 1.2rem;
     }
-
+    
     .suggestion-btn {
         padding: 12px 25px;
     }
@@ -695,24 +695,24 @@ h3 {
     header {
         min-height: 150px;
     }
-
+    
     .logo {
         height: 80px;
     }
-
+    
     h1 {
         font-size: 1.3rem;
     }
-
+    
     .logo-backdrop {
         width: 120px;
         height: 120px;
     }
-
+    
     .club-card {
         padding: 15px;
     }
-
+    
     .no-matches-content h3 {
         font-size: 1.1rem;
     }
@@ -724,13 +724,13 @@ h3 {
         display: flex;
         align-items: center;
     }
-
+    
     .no-matches-image {
         width: 45%;
         height: auto;
         min-height: 300px;
     }
-
+    
     .no-matches-content {
         width: 55%;
         padding: 40px;
