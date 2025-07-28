@@ -641,3 +641,73 @@ h3 {
         justify-content: center;
     }
 }
+
+@media (max-width: 400px) {
+    /* Уменьшаем размеры для очень маленьких экранов */
+    .club-card {
+        padding: 15px;
+    }
+
+    .club-card img {
+        height: 150px;
+        margin-bottom: 12px;
+    }
+
+    .club-card h3 {
+        font-size: 1.1rem;
+        min-height: 2.5rem;
+        margin-bottom: 10px;
+    }
+
+    .club-card p {
+        font-size: 0.9rem;
+        max-height: 120px;
+        margin-bottom: 15px;
+    }
+
+    .club-card a {
+        padding: 8px 15px;
+        font-size: 0.9rem;
+    }
+
+    .swipe-btn {
+        width: 55px;
+        height: 55px;
+        font-size: 1.4rem;
+    }
+
+    h1 {
+        font-size: 1.4rem;
+    }
+
+    h2 {
+        font-size: 1.2rem;
+        margin-bottom: 15px;
+    }
+}
+
+@media (max-width: 350px) {
+    /* Дополнительные уменьшения для самых маленьких экранов */
+    .club-card {
+        padding: 12px;
+    }
+
+    .club-card img {
+        height: 120px;
+    }
+
+    .club-card h3 {
+        font-size: 1rem;
+    }
+
+    .club-card p {
+        font-size: 0.85rem;
+        max-height: 100px;
+    }
+
+    .swipe-btn {
+        width: 50px;
+        height: 50px;
+        font-size: 1.2rem;
+    }
+}
