@@ -246,8 +246,8 @@ h3 {
 .club-card a:hover {
     background-color: var(--accent-color);
     transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
 }
-
 
 .swipe-actions {
     display: flex;
@@ -327,42 +327,41 @@ h3 {
     gap: 15px;
 }
 
-/* Широкое предложение */
-.suggestion-container {
+/* Предложение заполнить форму */
+.no-matches-container {
     width: 100%;
-    max-width: 900px;
+    max-width: 800px;
     margin: 0 auto 30px;
+    padding: 0 20px;
+}
+
+.no-matches-card {
     background: white;
     border-radius: 15px;
     overflow: hidden;
     box-shadow: var(--shadow-lg);
-    display: flex;
-    flex-direction: row;
-    align-items: center;
 }
 
-.suggestion-image {
-    width: 50%;
-    height: 300px;
+.no-matches-image {
+    width: 100%;
+    height: 200px;
     object-fit: cover;
 }
 
-.suggestion-text-content {
-    width: 50%;
-    padding: 30px;
+.no-matches-content {
+    padding: 25px;
     text-align: center;
 }
 
-.suggestion-text-content h3 {
-    font-size: 1.5rem;
+.no-matches-content h3 {
     color: var(--accent-color);
-    margin-bottom: 20px;
+    margin-bottom: 15px;
+    font-size: 1.5rem;
 }
 
-.suggestion-text-content p {
-    font-size: 1rem;
+.no-matches-content p {
+    margin-bottom: 20px;
     line-height: 1.6;
-    margin-bottom: 25px;
 }
 
 .suggestion-btn {
@@ -455,7 +454,7 @@ h3 {
     background-color: rgba(0, 0, 0, 0.05);
 }
 
-/* Адаптация */
+/* Адаптация для планшетов */
 @media (max-width: 992px) {
     .suggestion-container {
         flex-direction: column;
@@ -471,6 +470,7 @@ h3 {
     }
 }
 
+/* Адаптация для мобильных устройств */
 @media (max-width: 768px) {
     .container {
         padding: 15px;
@@ -497,7 +497,8 @@ h3 {
     }
 }
 
-@media (max-width: 576px) {
+/* Адаптация для маленьких экранов (менее 6.6") */
+@media (max-width: 400px) {
     header {
         padding: 15px;
     }
@@ -528,104 +529,107 @@ h3 {
         font-size: 1.5rem;
     }
 
-    .suggestion-text-content {
+    /* Стили для карточек свайпа */
+    .club-card {
+        padding: 15px;
+    }
+    
+    .club-card img {
+        height: 150px;
+        margin-bottom: 12px;
+    }
+    
+    .club-card h3 {
+        font-size: 1.1rem;
+        min-height: 2.5rem;
+        margin-bottom: 10px;
+    }
+    
+    .club-card p {
+        font-size: 0.9rem;
+        max-height: 120px;
+        margin-bottom: 15px;
+    }
+    
+    .club-card a {
+        padding: 8px 15px;
+        font-size: 0.9rem;
+    }
+
+    /* Стили для блока предложения */
+    .no-matches-content {
         padding: 20px 15px;
     }
 
-    .suggestion-text-content h3 {
-        font-size: 1.3rem;
+    .no-matches-content h3 {
+        font-size: 1.2rem;
+        margin-bottom: 12px;
+    }
+
+    .no-matches-content p {
+        font-size: 0.9rem;
+        margin-bottom: 15px;
+    }
+
+    .no-matches-image {
+        height: 160px;
     }
 
     .suggestion-btn {
         padding: 10px 25px;
+        font-size: 0.9rem;
     }
 }
 
-.no-matches-container {
-    width: 100%;
-    max-width: 800px;
-    margin: 0 auto 30px;
-    padding: 0 20px;
+/* Адаптация для самых маленьких экранов */
+@media (max-width: 350px) {
+    /* Дополнительные уменьшения для карточек свайпа */
+    .club-card {
+        padding: 12px;
+    }
+    
+    .club-card img {
+        height: 120px;
+    }
+    
+    .club-card h3 {
+        font-size: 1rem;
+    }
+    
+    .club-card p {
+        font-size: 0.85rem;
+        max-height: 100px;
+    }
+    
+    .swipe-btn {
+        width: 50px;
+        height: 50px;
+        font-size: 1.2rem;
+    }
+
+    /* Дополнительные уменьшения для блока предложения */
+    .no-matches-content h3 {
+        font-size: 1.1rem;
+    }
+
+    .no-matches-content p {
+        font-size: 0.85rem;
+    }
+
+    .no-matches-image {
+        height: 140px;
+    }
+
+    .suggestion-btn {
+        padding: 8px 20px;
+        font-size: 0.85rem;
+    }
 }
 
-.no-matches-card {
-    background: white;
-    border-radius: 15px;
-    padding: 30px;
-    text-align: center;
-    box-shadow: var(--shadow-lg);
-}
-
-.no-matches-card h3 {
-    color: var(--accent-color);
-    margin-bottom: 15px;
-    font-size: 1.5rem;
-}
-
-.no-matches-card p {
-    margin-bottom: 20px;
-    line-height: 1.6;
-}
-
-.suggestion-btn {
-    display: inline-block;
-    padding: 12px 30px;
-    background-color: var(--primary-color);
-    color: white;
-    text-decoration: none;
-    border-radius: 30px;
-    font-weight: 500;
-    transition: all 0.3s ease;
-    box-shadow: var(--shadow-sm);
-}
-
-.suggestion-btn:hover {
-    background-color: var(--accent-color);
-    transform: translateY(-2px);
-    box-shadow: var(--shadow-md);
-}
-
-.no-matches-container {
-    width: 100%;
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 0 20px;
-    display: none;
-}
-
-.no-matches-card {
-    background: white;
-    border-radius: 15px;
-    overflow: hidden;
-    box-shadow: var(--shadow-lg);
-    display: flex;
-    flex-direction: column;
-}
-
-.no-matches-image {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
-}
-
-.no-matches-content {
-    padding: 25px;
-    text-align: center;
-}
-
-.no-matches-content h3 {
-    color: var(--accent-color);
-    margin-bottom: 15px;
-    font-size: 1.5rem;
-}
-
-.no-matches-content p {
-    margin-bottom: 20px;
-    line-height: 1.6;
-}
-
+/* Горизонтальная раскладка для широких экранов */
 @media (min-width: 768px) {
     .no-matches-card {
+        display: flex;
         flex-direction: row;
     }
 
@@ -639,75 +643,5 @@ h3 {
         display: flex;
         flex-direction: column;
         justify-content: center;
-    }
-}
-
-@media (max-width: 400px) {
-    /* Уменьшаем размеры для очень маленьких экранов */
-    .club-card {
-        padding: 15px;
-    }
-
-    .club-card img {
-        height: 150px;
-        margin-bottom: 12px;
-    }
-
-    .club-card h3 {
-        font-size: 1.1rem;
-        min-height: 2.5rem;
-        margin-bottom: 10px;
-    }
-
-    .club-card p {
-        font-size: 0.9rem;
-        max-height: 120px;
-        margin-bottom: 15px;
-    }
-
-    .club-card a {
-        padding: 8px 15px;
-        font-size: 0.9rem;
-    }
-
-    .swipe-btn {
-        width: 55px;
-        height: 55px;
-        font-size: 1.4rem;
-    }
-
-    h1 {
-        font-size: 1.4rem;
-    }
-
-    h2 {
-        font-size: 1.2rem;
-        margin-bottom: 15px;
-    }
-}
-
-@media (max-width: 350px) {
-    /* Дополнительные уменьшения для самых маленьких экранов */
-    .club-card {
-        padding: 12px;
-    }
-
-    .club-card img {
-        height: 120px;
-    }
-
-    .club-card h3 {
-        font-size: 1rem;
-    }
-
-    .club-card p {
-        font-size: 0.85rem;
-        max-height: 100px;
-    }
-
-    .swipe-btn {
-        width: 50px;
-        height: 50px;
-        font-size: 1.2rem;
     }
 }
