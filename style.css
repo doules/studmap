@@ -36,39 +36,71 @@ body {
     min-height: calc(100vh - 40px);
 }
 
+/* Новый хедер с логотипом и виньеткой */
 header {
     background-color: var(--primary-color);
     color: var(--light-text);
-    padding: 20px;
-    text-align: center;
+    padding: 40px 20px;
     position: relative;
+    overflow: hidden;
+    min-height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.header-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    width: 100%;
+}
+
+.logo-backdrop {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 180px;
+    height: 180px;
+    background: radial-gradient(circle, rgba(255,255,255,0.3) 0%, rgba(255,255,255,0) 70%);
+    border-radius: 50%;
+    z-index: 1;
 }
 
 .logo {
-    height: 60px;
-    margin-bottom: 10px;
+    height: 140px;
+    margin-bottom: 15px;
     object-fit: contain;
+    position: relative;
+    z-index: 3;
+    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3));
+    transition: all 0.3s ease;
 }
 
 h1 {
-    font-size: 1.5rem;
-    margin-bottom: 5px;
+    font-size: 2.2rem;
+    margin-bottom: 0;
+    position: relative;
+    z-index: 3;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+    transition: all 0.3s ease;
 }
 
 h2 {
-    font-size: 1.3rem;
-    margin-bottom: 20px;
+    font-size: 1.5rem;
+    margin-bottom: 25px;
     text-align: center;
     color: var(--accent-color);
 }
 
 h3 {
-    font-size: 1.2rem;
+    font-size: 1.3rem;
     color: var(--primary-color);
 }
 
 .screen {
-    padding: 20px;
+    padding: 25px;
     display: none;
 }
 
@@ -79,9 +111,9 @@ h3 {
 /* Категории */
 .categories-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px;
-    margin-bottom: 25px;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+    margin-bottom: 30px;
 }
 
 .category-card {
@@ -97,8 +129,8 @@ h3 {
 
 .category-content {
     border: 2px solid #e0e0e0;
-    border-radius: 10px;
-    padding: 15px;
+    border-radius: 12px;
+    padding: 20px;
     transition: all 0.3s ease;
     height: 100%;
 }
@@ -111,33 +143,32 @@ h3 {
 
 .category-content img {
     width: 100%;
-    height: 120px;
+    height: 140px;
     object-fit: cover;
-    border-radius: 8px;
-    margin-bottom: 12px;
+    border-radius: 10px;
+    margin-bottom: 15px;
 }
 
 .category-content h3 {
-    margin-bottom: 8px;
-    font-size: 1.1rem;
+    margin-bottom: 10px;
 }
 
 .category-content p {
     color: var(--text-color);
-    font-size: 0.9rem;
+    font-size: 0.95rem;
 }
 
 /* Кнопки */
 .btn {
     display: block;
-    width: 200px;
-    margin: 20px auto;
-    padding: 12px;
+    width: 220px;
+    margin: 25px auto;
+    padding: 14px;
     background-color: var(--primary-color);
     color: white;
     border: none;
-    border-radius: 25px;
-    font-size: 0.95rem;
+    border-radius: 30px;
+    font-size: 1rem;
     font-weight: 500;
     cursor: pointer;
     transition: all 0.3s ease;
@@ -159,10 +190,10 @@ h3 {
 .error-message {
     color: var(--error-color);
     text-align: center;
-    margin: 15px 0;
+    margin: 20px 0;
     font-weight: bold;
-    padding: 10px;
-    border-radius: 6px;
+    padding: 12px;
+    border-radius: 8px;
     background-color: rgba(231, 76, 60, 0.1);
 }
 
@@ -174,8 +205,8 @@ h3 {
 .swipe-container {
     position: relative;
     height: auto;
-    min-height: 60vh;
-    margin-bottom: 20px;
+    min-height: 65vh;
+    margin-bottom: 25px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -184,7 +215,7 @@ h3 {
 .card-deck {
     position: relative;
     width: 100%;
-    max-width: 450px;
+    max-width: 500px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -193,16 +224,16 @@ h3 {
 .club-card {
     position: relative;
     width: 90%;
-    max-width: 400px;
+    max-width: 420px;
     background: white;
-    border-radius: 15px;
+    border-radius: 18px;
     box-shadow: var(--shadow-lg);
-    padding: 20px;
+    padding: 25px;
     display: flex;
     flex-direction: column;
     transition: transform 0.5s ease, opacity 0.5s ease;
     cursor: grab;
-    margin: 15px auto;
+    margin: 20px auto;
 }
 
 .club-card:active {
@@ -211,39 +242,37 @@ h3 {
 
 .club-card img {
     width: 100%;
-    height: 180px;
+    height: 200px;
     object-fit: cover;
-    border-radius: 10px;
-    margin-bottom: 15px;
+    border-radius: 12px;
+    margin-bottom: 20px;
 }
 
 .club-card h3 {
-    margin-bottom: 12px;
-    font-size: 1.2rem;
-    min-height: 2.8rem;
+    margin-bottom: 15px;
+    font-size: 1.3rem;
+    min-height: 3rem;
 }
 
 .club-card p {
     flex-grow: 1;
-    margin-bottom: 15px;
+    margin-bottom: 20px;
     line-height: 1.5;
     overflow-y: auto;
-    max-height: 120px;
-    font-size: 0.95rem;
+    max-height: 150px;
 }
 
 .club-card a {
     display: inline-block;
-    padding: 8px 16px;
+    padding: 10px 18px;
     background-color: var(--primary-color);
     color: white;
     text-decoration: none;
-    border-radius: 20px;
+    border-radius: 25px;
     text-align: center;
     transition: all 0.3s ease;
     font-weight: 500;
     margin-top: auto;
-    font-size: 0.9rem;
 }
 
 .club-card a:hover {
@@ -255,16 +284,16 @@ h3 {
 .swipe-actions {
     display: flex;
     justify-content: center;
-    gap: 40px;
-    margin-top: 20px;
+    gap: 50px;
+    margin-top: 25px;
 }
 
 .swipe-btn {
-    width: 60px;
-    height: 60px;
+    width: 70px;
+    height: 70px;
     border-radius: 50%;
     border: none;
-    font-size: 1.6rem;
+    font-size: 1.8rem;
     cursor: pointer;
     transition: all 0.3s ease;
     display: flex;
@@ -290,15 +319,15 @@ h3 {
 /* Результаты */
 .matches-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    gap: 20px;
-    margin-bottom: 30px;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 25px;
+    margin-bottom: 35px;
 }
 
 .match-card {
     background: white;
-    border-radius: 10px;
-    padding: 15px;
+    border-radius: 12px;
+    padding: 20px;
     text-align: center;
     box-shadow: var(--shadow-sm);
     cursor: pointer;
@@ -311,80 +340,74 @@ h3 {
 }
 
 .match-card img {
-    width: 100px;
-    height: 100px;
+    width: 110px;
+    height: 110px;
     border-radius: 50%;
     object-fit: cover;
-    margin: 0 auto 12px;
-    border: 3px solid var(--secondary-color);
+    margin: 0 auto 15px;
+    border: 4px solid var(--secondary-color);
 }
 
 .match-card h3 {
-    font-size: 1rem;
+    font-size: 1.1rem;
 }
 
 #buttons-container {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 12px;
+    gap: 15px;
 }
 
 /* Предложение заполнить форму */
 .no-matches-container {
     width: 100%;
     max-width: 800px;
-    margin: 0 auto 25px;
-    padding: 0 15px;
+    margin: 0 auto 30px;
+    padding: 0 20px;
 }
 
 .no-matches-card {
     background: white;
-    border-radius: 12px;
+    border-radius: 15px;
     overflow: hidden;
     box-shadow: var(--shadow-lg);
-    margin: 0 auto;
-    width: 100%;
 }
 
 .no-matches-image {
     width: 100%;
-    height: 180px;
+    height: 200px;
     object-fit: cover;
 }
 
 .no-matches-content {
-    padding: 20px;
+    padding: 25px;
     text-align: center;
 }
 
 .no-matches-content h3 {
     color: var(--accent-color);
-    margin: 0 auto 12px;
-    font-size: 1.3rem;
-    line-height: 1.3;
+    margin-bottom: 15px;
+    font-size: 1.5rem;
     text-align: center;
-    width: 100%;
 }
 
 .no-matches-content p {
-    margin: 0 auto 15px;
-    line-height: 1.5;
+    margin-bottom: 20px;
+    line-height: 1.6;
     text-align: center;
-    max-width: 90%;
 }
 
 .suggestion-btn {
     display: inline-block;
-    padding: 10px 25px;
+    padding: 12px 30px;
     background-color: var(--primary-color);
     color: white;
     text-decoration: none;
-    border-radius: 25px;
+    border-radius: 30px;
     font-weight: 500;
     transition: all 0.3s ease;
     box-shadow: var(--shadow-sm);
-    font-size: 0.95rem;
 }
 
 .suggestion-btn:hover {
@@ -405,16 +428,16 @@ h3 {
     justify-content: center;
     align-items: center;
     z-index: 1000;
-    padding: 15px;
+    padding: 20px;
 }
 
 .modal-content {
     background: white;
-    padding: 25px;
-    border-radius: 12px;
-    max-width: 500px;
+    padding: 30px;
+    border-radius: 15px;
+    max-width: 550px;
     width: 100%;
-    max-height: 80vh;
+    max-height: 85vh;
     overflow-y: auto;
     position: relative;
     box-shadow: var(--shadow-lg);
@@ -422,10 +445,10 @@ h3 {
 
 .modal-image {
     width: 100%;
-    height: 200px;
+    height: 250px;
     object-fit: cover;
-    border-radius: 10px;
-    margin-bottom: 15px;
+    border-radius: 12px;
+    margin-bottom: 20px;
 }
 
 .modal-text {
@@ -433,29 +456,27 @@ h3 {
 }
 
 .modal-title {
-    margin-bottom: 12px;
+    margin-bottom: 15px;
     color: var(--accent-color);
-    font-size: 1.3rem;
 }
 
 .modal-description {
-    line-height: 1.5;
-    margin-bottom: 15px;
-    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 20px;
 }
 
 .close-modal {
     position: absolute;
-    top: 10px;
-    right: 15px;
-    font-size: 24px;
+    top: 15px;
+    right: 20px;
+    font-size: 28px;
     cursor: pointer;
     color: var(--text-color);
     transition: color 0.3s;
     background: none;
     border: none;
-    width: 35px;
-    height: 35px;
+    width: 40px;
+    height: 40px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -469,10 +490,24 @@ h3 {
 
 /* Адаптация для планшетов */
 @media (max-width: 992px) {
-    .container {
-        padding: 15px;
+    header {
+        padding: 30px 15px;
+        min-height: 180px;
     }
-    
+
+    .logo {
+        height: 120px;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    .logo-backdrop {
+        width: 160px;
+        height: 160px;
+    }
+
     .categories-grid {
         grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
     }
@@ -481,37 +516,40 @@ h3 {
 /* Адаптация для мобильных устройств */
 @media (max-width: 768px) {
     header {
-        padding: 15px 10px;
+        padding: 25px 10px;
+        min-height: 160px;
     }
-    
+
     .logo {
-        height: 50px;
+        height: 100px;
+        margin-bottom: 10px;
     }
-    
+
     h1 {
-        font-size: 1.3rem;
+        font-size: 1.7rem;
     }
-    
-    h2 {
-        font-size: 1.1rem;
+
+    .logo-backdrop {
+        width: 140px;
+        height: 140px;
     }
-    
+
     .screen {
-        padding: 15px;
+        padding: 20px;
     }
-    
+
     .matches-grid {
         grid-template-columns: 1fr 1fr;
-        gap: 15px;
+        gap: 20px;
     }
-    
+
     .match-card {
-        padding: 12px;
+        padding: 15px;
     }
-    
+
     .match-card img {
-        width: 80px;
-        height: 80px;
+        width: 90px;
+        height: 90px;
     }
 }
 
@@ -520,135 +558,141 @@ h3 {
     body {
         padding: 10px;
     }
-    
-    .container {
-        min-height: calc(100vh - 20px);
-    }
-    
+
     header {
-        padding: 12px 8px;
+        padding: 20px 8px;
+        min-height: 140px;
     }
-    
+
     .logo {
-        height: 45px;
+        height: 80px;
         margin-bottom: 8px;
     }
-    
+
     h1 {
-        font-size: 1.1rem;
+        font-size: 1.4rem;
     }
-    
-    h2 {
-        font-size: 1rem;
-        margin-bottom: 15px;
+
+    .logo-backdrop {
+        width: 120px;
+        height: 120px;
     }
-    
+
     .screen {
-        padding: 12px;
+        padding: 15px;
     }
-    
+
     .categories-grid {
         grid-template-columns: 1fr;
         gap: 15px;
     }
-    
+
     .category-content {
-        padding: 12px;
+        padding: 15px;
     }
-    
+
     .category-content img {
-        height: 100px;
+        height: 120px;
     }
-    
+
     .btn {
         width: 180px;
-        padding: 10px;
-        font-size: 0.9rem;
+        padding: 12px;
+        font-size: 0.95rem;
     }
-    
+
     /* Карточки свайпа */
     .club-card {
-        padding: 15px;
+        padding: 20px;
     }
-    
+
     .club-card img {
-        height: 150px;
+        height: 160px;
     }
-    
+
     .club-card h3 {
-        font-size: 1.1rem;
+        font-size: 1.2rem;
     }
-    
+
     .club-card p {
-        font-size: 0.9rem;
+        font-size: 0.95rem;
     }
-    
+
     .swipe-btn {
-        width: 55px;
-        height: 55px;
-        font-size: 1.4rem;
+        width: 60px;
+        height: 60px;
+        font-size: 1.6rem;
     }
-    
+
     /* Карточка "Не нашел объединения" */
     .no-matches-container {
-        padding: 0 10px;
+        padding: 0 15px;
         margin-bottom: 20px;
     }
-    
+
     .no-matches-card {
-        border-radius: 10px;
+        border-radius: 12px;
     }
-    
+
     .no-matches-image {
-        height: 150px;
+        height: 160px;
     }
-    
+
     .no-matches-content {
-        padding: 15px;
+        padding: 20px;
     }
-    
+
     .no-matches-content h3 {
-        font-size: 1.1rem;
-        margin-bottom: 10px;
-    }
-    
-    .no-matches-content p {
-        font-size: 0.9rem;
+        font-size: 1.2rem;
         margin-bottom: 12px;
     }
-    
-    .suggestion-btn {
-        padding: 8px 20px;
+
+    .no-matches-content p {
         font-size: 0.9rem;
+        margin-bottom: 15px;
+    }
+
+    .suggestion-btn {
+        padding: 10px 25px;
+        font-size: 0.95rem;
     }
 }
 
 /* Адаптация для самых маленьких экранов */
 @media (max-width: 350px) {
-    h1 {
-        font-size: 1rem;
+    header {
+        min-height: 130px;
     }
-    
+
     .logo {
-        height: 40px;
+        height: 70px;
     }
-    
+
+    h1 {
+        font-size: 1.2rem;
+    }
+
+    .logo-backdrop {
+        width: 110px;
+        height: 110px;
+    }
+
     /* Карточка "Не нашел объединения" */
     .no-matches-content h3 {
-        font-size: 1rem;
+        font-size: 1.1rem;
     }
-    
+
     .no-matches-content p {
         font-size: 0.85rem;
     }
-    
+
     .no-matches-image {
-        height: 130px;
+        height: 140px;
     }
-    
+
     .suggestion-btn {
-        padding: 7px 18px;
-        font-size: 0.85rem;
+        padding: 8px 20px;
+        font-size: 0.9rem;
     }
 }
 
@@ -657,15 +701,15 @@ h3 {
     .no-matches-card {
         display: flex;
     }
-    
+
     .no-matches-image {
         width: 45%;
         height: auto;
     }
-    
+
     .no-matches-content {
         width: 55%;
-        padding: 25px;
+        padding: 30px;
         display: flex;
         flex-direction: column;
         justify-content: center;
