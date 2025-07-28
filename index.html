@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Карта студенческих объединений РГГМУ</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="container">
+    <header>
+        <img src="images/logo.png" alt="Логотип РГГМУ" class="logo">
+        <h1>Карта студенческих объединений</h1>
+    </header>
+
+    <div id="categories-screen" class="screen active">
+        <h2>Выберите интересующие вас категории</h2>
+        <div class="categories-grid">
+            <label class="category-card">
+                <input type="checkbox" name="category" value="science">
+                <div class="category-content">
+                    <img src="images/science.jpg" alt="Наука">
+                    <h3>Научные</h3>
+                    <p>Студенческие научные общества, интеллектуальные клубы</p>
+                </div>
+            </label>
+
+            <label class="category-card">
+                <input type="checkbox" name="category" value="creative">
+                <div class="category-content">
+                    <img src="images/bravo.jpg" alt="Творчество">
+                    <h3>Творческие</h3>
+                    <p>Театры, хоры, танцевальные коллективы, медиа-студии</p>
+                </div>
+            </label>
+
+            <label class="category-card">
+                <input type="checkbox" name="category" value="sport">
+                <div class="category-content">
+                    <img src="images/sport.jpg" alt="Спорт">
+                    <h3>Спортивные</h3>
+                    <p>Спортивные секции, клубы, соревнования</p>
+                </div>
+            </label>
+
+            <label class="category-card">
+                <input type="checkbox" name="category" value="social">
+                <div class="category-content">
+                    <img src="images/volunteer.jpg" alt="Волонтерство">
+                    <h3>Социальные</h3>
+                    <p>Волонтерские центры, студенческие отряды</p>
+                </div>
+            </label>
+        </div>
+
+        <div id="error-message" class="error-message hidden">
+            Для продолжения выберите хотя бы одну категорию
+        </div>
+
+        <button id="next-btn" class="btn">Далее</button>
+    </div>
+
+    <div id="swipe-screen" class="screen">
+        <div class="swipe-container">
+            <div id="card-deck" class="card-deck"></div>
+        </div>
+        <div class="swipe-actions">
+            <button id="dislike-btn" class="swipe-btn dislike">✖</button>
+            <button id="like-btn" class="swipe-btn like">❤</button>
+        </div>
+    </div>
+
+    <div id="results-screen" class="screen">
+        <h2 id="results-title">Вам подходят эти объединения</h2>
+        <div id="matches-grid" class="matches-grid"></div>
+
+        <div id="no-matches-container" class="no-matches-container">
+            <div class="no-matches-card">
+                <img src="images/council.jpg" alt="Совет обучающихся" class="no-matches-image">
+                <div class="no-matches-content">
+                    <h3>Не нашел подходящего объединения?</h3>
+                    <p>Расскажи нам, какое направление тебя интересует. Мы рассмотрим твое предложение и постараемся помочь!</p>
+                    <a href="https://forms.yandex.ru/u/68089fbc50569042e592b29a/"
+                       target="_blank"
+                       class="suggestion-btn">
+                        Оставить предложение
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div id="buttons-container">
+            <button id="export-btn" class="btn">Экспорт в PDF</button>
+            <button id="restart-btn" class="btn secondary">Начать заново</button>
+        </div>
+    </div>
+</div>
+
+<script src="libs/html2pdf.bundle.min.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
