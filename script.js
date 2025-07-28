@@ -363,26 +363,61 @@ document.addEventListener('DOMContentLoaded', function() {
 
         const element = document.createElement('div');
         element.innerHTML = `
-            <h1 style="text-align: center; color: #2c7873;">Ваши подходящие объединения</h1>
-            <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; margin-top: 20px;">
-                ${matchedClubs.map(club => `
-                    <div style="text-align: center; padding: 10px;">
-                        <img src="${club.image}" style="width: 80px; height: 80px; border-radius: 50%; object-fit: cover; margin-bottom: 5px;" alt="${club.name}">
-                        <h3 style="font-size: 14px; color: #2c7873;">${club.name}</h3>
-                    </div>
-                `).join('')}
-            </div>
-        `;
+        <h1 style="text-align: center; color: #2c7873; margin-bottom: 20px;">Ваши подходящие объединения</h1>
+        <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; margin-top: 20px;">
+            ${matchedClubs.map(club => `
+                <div style="text-align: center; padding: 10px; border: 1px solid #eee; border-radius: 8px;">
+                    <img src="${club.image}" style="width: 80px; height: 80px; border-radius: 50%; object-fit: cover; margin-bottom: 5px;" alt="${club.name}">
+                    <h3 style="font-size: 14px; color: #2c7873; margin: 5px 0;">${club.name}</h3>
+                </div>
+            `).join('')}
+        </div>
+    `;
 
         const opt = {
             margin: 10,
             filename: 'студенческие_объединения.pdf',
             image: { type: 'jpeg', quality: 0.98 },
-            html2canvas: { scale: 2 },
-            jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
+            html2canvas: {
+                scale: 2,
+                useCORS: true,
+                allowTaint: true,
+                scrollY: 0
+            },
+            jsPDF: {
+                unit: 'mm',
+                format: 'a4',
+                orientation: 'portrait',
+                compress: true
+            }
         };
 
-        html2pdf().set(opt).from(element).save();
+        // Проверка мобильного устройства
+        const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+
+        if (isMobile) {
+            // Для мобильных устройств используем альтернативный подход
+            html2pdf().set(opt).from(element).toPdf().get('pdf').then(function(pdf) {
+                const blob = pdf.output('blob');
+                const url = URL.createObjectURL(blob);
+
+                // Создаем временную ссылку для скачивания
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = opt.filename;
+                document.body.appendChild(a);
+                a.click();
+
+                // Очистка
+                setTimeout(() => {
+                    document.body.removeChild(a);
+                    URL.revokeObjectURL(url);
+                }, 100);
+            });
+        } else {
+            // Для десктопов стандартный подход
+            html2pdf().set(opt).from(element).save();
+        }
     }
 
     function restartProcess() {
